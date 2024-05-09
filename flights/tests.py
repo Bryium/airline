@@ -26,3 +26,8 @@ class FlightTestCase(TestCase):
     a = Airport.objects.get(code="AAA")
     self.assertEqual(a.arrival.count(), 1)
 
+  def test_valid_flight(self):
+    a1 = Airport.objects.get(code="AAA") 
+    a2 = Airport.objects.get(code="BBB") 
+    f = Flight.objects.get(origin=a1, destination=a2, duration=100)
+
